@@ -47,7 +47,7 @@ const Dog = ({dog}) => {
 
             if (dog.breeds[0].height) {
                 if (dog.breeds[0].height[unit]){
-                    displayArray.push(<BiColumnGrid row1="Height" row2={`${dog.breeds[0].height[unit]} ${(unit==='imperial')? 'inches': 'centimeters'}`} />)
+                    displayArray.push(<BiColumnGrid row1="Height" row2={`${dog.breeds[0].height[unit]} ${(unit==='imperial')? 'Inches': 'Centimeters'}`} />)
                 } else {
                     displayArray.push(<BiColumnGrid row1="Height" row2="Not available" />)    
                 }
@@ -57,7 +57,7 @@ const Dog = ({dog}) => {
             
             if (dog.breeds[0].weight) {
                 if (dog.breeds[0].weight[unit]){
-                    displayArray.push(<BiColumnGrid row1="Weight" row2={`${dog.breeds[0].weight[unit]} ${(unit==='imperial')? 'lbs': 'Kgs'}`} />)
+                    displayArray.push(<BiColumnGrid row1="Weight" row2={`${dog.breeds[0].weight[unit]} ${(unit==='imperial')? 'Lbs': 'Kgs'}`} />)
                 } else {
                     displayArray.push(<BiColumnGrid row1="Weight" row2="Not available" />)    
                 }
@@ -82,7 +82,7 @@ const Dog = ({dog}) => {
     }
 
     return (
-        <Paper style={{margin: "5%", minHeight: "82vh", maxHeight: "10vh"}}>
+        <Paper style={{margin: "5%", minHeight: "80vh"}}>
             {displayArray && displayArray.length > 0 && displayArray}
         </Paper>
     )
