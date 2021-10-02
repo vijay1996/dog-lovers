@@ -22,7 +22,7 @@ function App() {
 
   }, [reload, dispatch])
 
-  const reloadImages = () => {
+  const navigatePage = (type="next") => {
     setDogsLoaded(false)
     setReload(!reload)
   }
@@ -33,7 +33,7 @@ function App() {
       <header className="App-header">
         <Typography variant="h1">Dog Lovers</Typography>
       </header>
-      <Nav reloadImages={reloadImages} />
+      <Nav reloadImages={navigatePage} />
       <div className="Images-div">
         {dogsLoaded ? <DogList /> : <CircularProgress />}
       </div>

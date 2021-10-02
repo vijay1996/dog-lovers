@@ -16,7 +16,7 @@ const Nav = ({reloadImages}) => {
         <nav className="App-nav">
             <Grid container spacing={2}>
             <Grid item sm={6} md={10} lg={10} style={{textAlign:"left"}}>
-                <Button variant="contained" color="primary" style={navStyles} onClick={()=>reloadImages()}>Reload List</Button>
+                <Button variant="contained" color="primary" style={navStyles} onClick={()=>reloadImages()}>Reload list</Button>
                 <Button variant="text" color="primary" style={{...navStyles, cursor: "pointer"}}>Top Dogs</Button>
             </Grid>
             <Grid item sm={6} md={2} lg={2} style={{textAlign:"right"}}>

@@ -3,8 +3,8 @@ const URL = "https://api.thedogapi.com/v1/images/search?";
 export const fetchDogsFromApi = async ({
   apiURL = URL,
   limit = 10,
-  page = 10,
-  order = "Desc",
+  page = 0,
+  order = "asc",
 }) => {
   try {
     const response = await fetch(

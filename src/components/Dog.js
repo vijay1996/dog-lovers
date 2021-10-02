@@ -20,9 +20,9 @@ const Dog = ({dog}) => {
         }
         if(dog.id) {
             displayArray.push(
-                <Grid container spacing={2}>
-                    <Grid item sm={5}><Button variant="outlined" color="primary">Upvote</Button></Grid>
-                    <Grid item sm={7}><Button variant="outlined" color="secondary">Downvote</Button></Grid>
+                <Grid container spacing={2} style={{paddingLeft: "4%"}}>
+                    <Grid item sm={4} style={{textAlign: "right"}}><Button variant="outlined" color="primary">Upvote</Button></Grid>
+                    <Grid item sm={8} style={{textAlign: "left"}}><Button variant="outlined" color="secondary">Downvote</Button></Grid>
                 </Grid>
             )
         }
