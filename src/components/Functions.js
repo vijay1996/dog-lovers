@@ -1,41 +1,36 @@
-import React from "react";
-import { Typography, Button } from "@material-ui/core";
-import BiColumnGrid from './BiColumnGrid'
-import { castVoteViaApi } from '../apiCalls'
-import { useSelector } from 'react-redux'
+//A react component that just acts as a repository of functions used to enforce business logic in the app.
 
-export const DeterminePage = (state, type) => {
-    if(state && Object.keys(state).length){
-        switch(type) {
-            case "list":
-                return [...state.dogList] 
-            case "topDogs":
-                return [...state.topDogs]
-            default:
-                return [...state.dogList]
-        }
-    }
+import React from "react";
+import { Typography } from "@material-ui/core";
+import BiColumnGrid from './BiColumnGrid'
+
+export const DetermineVotes = (voteList,dogList) => {
+    let votesArray = []
+    if(voteList && voteList.length && dogList && dogList.length) {
+        votesArray = dogList.map(dog => {
+            return voteList.filter(vote => {
+                return vote.image_id === dog.id
+            }).length
+        })
+    }   
+    return votesArray
 }
 
-export const BuildDogCard = (dog) => {
+export const BuildDogCard = (dog, votes, unit, setVotes) => {
+
+    //Accepts dog object and builds an array which gets displayed as a card that contains the details of the dog.
     const displayArray = []
-    const unit = useSelector(state => state.unitReducer.unit)
     if (dog && Object.keys(dog).length) {
         if (dog.url) {
             displayArray.push(<img src={dog.url} alt="Dog" style={{width:"100%", height:"250px", objectFit:"cover"}} key={dog.url} />)
         }
+
         if(dog.breeds && dog.breeds.length && dog.breeds[0].name) {
             displayArray.push(<Typography variant="h6">{dog.breeds[0].name}</Typography>)
         } else {
             displayArray.push(<Typography variant="h6">Name not available</Typography>)
         }
-        if(dog.id) {
-            displayArray.push(
-                <div style={{width:"100%", textAlign:"left", margin: "3%"}}>
-                    <Button variant="outlined" color="primary" onClick={()=>castVoteViaApi({image_id: dog.id, value: 1})}>Like</Button>
-                </div>
-            )
-        }
+
         if (dog.breeds && dog.breeds.length) {
             if (dog.breeds[0].life_span){
                 displayArray.push(<BiColumnGrid row1="Life span" row2={dog.breeds[0].life_span} />)

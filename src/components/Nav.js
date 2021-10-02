@@ -1,30 +1,43 @@
+//Displays navigation items
+
 import { Grid, Button, RadioGroup, FormControlLabel, Radio } from "@material-ui/core"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { setUnit } from "../app/actions"
 
-const Nav = ({reloadImages}) => {
+const Nav = ({reloadImages, type, setType}) => {
     const dispatch = useDispatch()
     const [selectedUnit, setSelectedUnit] = useState("imperial")
     
     const handleChange = (e) => {
+
+        //simple function that sets the preferences for the unit system to be used. This is then dispatched to 
+        //the store. So, in the functions component, when dog card is built, appropriate property for unit system
+        //can be selected.
+
         dispatch(setUnit(e.target.value))
         setSelectedUnit(e.target.value)
     }
 
+    const handleNavButtonClick = (target) => {
+        setType(target)
+        if(target === 'list') {
+            reloadImages()
+        }
+    }
+
     return (
-        <nav className="App-nav">
-            <Grid container spacing={2}>
-            <Grid item sm={6} md={10} lg={10} style={{textAlign:"left"}}>
-                <Button variant="contained" color="primary" style={navStyles} onClick={()=>reloadImages()}>Reload list</Button>
-                <Button variant="text" color="primary" style={{...navStyles, cursor: "pointer"}}>Top Dogs</Button>
-            </Grid>
-            <Grid item sm={6} md={2} lg={2} style={{textAlign:"right"}}>
-                <RadioGroup row aria-label="gender" name="row-radio-buttons-group" value={selectedUnit} onChange={(e)=>handleChange(e)}>
-                    <FormControlLabel value="imperial" control={<Radio />} label="Imperial" />
-                    <FormControlLabel value="metric" control={<Radio />} label="Metric" />
-                </RadioGroup>
-            </Grid>
+        <nav className="App-nav" style={{textAlign: "center"}}>
+            <Grid container spacing={5} style={{textAlign: "center"}}>
+                <Grid item xs={12} sm={12} md={6} lg={6} style={{textAlign:"center"}}>
+                    <Button variant={type==="list" ? "contained" : "text"} id="list" color="primary" style={navStyles} onClick={()=>handleNavButtonClick("list")}>Reload list</Button>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={6} >
+                    <RadioGroup row aria-label="gender" name="row-radio-buttons-group" style={{display: "flex", justifyContent: "center", alignContent:"center"}} value={selectedUnit} onChange={(e)=>handleChange(e)}>
+                        <FormControlLabel value="imperial" control={<Radio />} style={{textAlign: "center"}} label="Imperial" />
+                        <FormControlLabel value="metric" control={<Radio />} style={{textAlign: "center"}} label="Metric" />
+                    </RadioGroup>
+                </Grid>
             </Grid>
          </nav>
     )

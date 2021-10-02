@@ -50,3 +50,25 @@ export const castVoteViaApi = async ({
   }
 };
 
+export const fetchVotesFromApi = async ({
+  apiURL = VOTE_URL,
+  image_id = "",
+  sub_id = "",
+  value = 1,
+}) => {
+  try {
+    const response = await fetch(
+      `${apiURL}`,
+      {
+        method: "GET",
+        headers: {
+          "X-Api-Key": `${process.env.REACT_APP_DOG_API_KEY}`,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    return response.json();
+  } catch (error) {
+    return error;
+  }
+};
