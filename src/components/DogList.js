@@ -5,7 +5,7 @@ import Dog from "./Dog"
 import { Grid } from "@material-ui/core"
 
 const DogList = ({type="list"}) => {
-    const state = useSelector(state => state)
+    const state = useSelector(state => state.dogListReducer)
     let dogList = []
     
     if(state && Object.keys(state).length){

@@ -7,3 +7,11 @@ export const setDogList = (payload) => {
       payload
     }
 }
+
+export const setUnit = (payload) => {
+  //This action sets the dog list by accepting the dogList as payload from the user
+  return {
+    type: "setUnit",
+    payload
+  }
+}

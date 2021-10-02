@@ -3,9 +3,9 @@ import './App.css';
 import { fetchDogsFromApi } from './apiCalls';
 import { useDispatch } from 'react-redux'
 import { setDogList } from './app/actions';
-
 import DogList from './components/DogList';
-import { Button, Typography, CircularProgress } from '@material-ui/core';
+import Nav from './components/Nav';
+import { Typography, CircularProgress} from '@material-ui/core';
 
 function App() {
 
@@ -33,22 +33,12 @@ function App() {
       <header className="App-header">
         <Typography variant="h1">Dog Lovers</Typography>
       </header>
-      <br />
-      <nav>
-        <Button variant="contained" color="primary" style={buttonStyles} onClick={()=>reloadImages()}>Reload List</Button>
-        <Button variant="contained" color="primary" style={buttonStyles}>Top Dogs</Button>
-      </nav>
-      <br />
+      <Nav reloadImages={reloadImages} />
       <div className="Images-div">
         {dogsLoaded ? <DogList /> : <CircularProgress />}
       </div>
     </div>
   );
-}
-
-const buttonStyles = {
-  margin: "1%", 
-  marginTop: "0"
 }
 
 export default App;
