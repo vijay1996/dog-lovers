@@ -1,4 +1,5 @@
 const URL = "https://api.thedogapi.com/v1/images/search?";
+const VOTE_URL = "https://api.thedogapi.com/v1/votes"
 
 export const fetchDogsFromApi = async ({
   apiURL = URL,
@@ -21,3 +22,31 @@ export const fetchDogsFromApi = async ({
     return error;
   }
 };
+
+export const castVoteViaApi = async ({
+  apiURL = VOTE_URL,
+  image_id = "",
+  sub_id = "",
+  value = 1,
+}) => {
+  try {
+    const response = await fetch(
+      `${apiURL}`,
+      {
+        method: "POST",
+        headers: {
+          "X-Api-Key": `${process.env.REACT_APP_DOG_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "image_id": image_id,
+          "value": value
+        })
+      }
+    );
+    return response.json();
+  } catch (error) {
+    return error;
+  }
+};
+

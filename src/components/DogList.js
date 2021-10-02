@@ -3,24 +3,11 @@
 import { useSelector } from "react-redux"
 import Dog from "./Dog"
 import { Grid } from "@material-ui/core"
+import { DeterminePage } from "./Functions"
 
 const DogList = ({type="list"}) => {
     const state = useSelector(state => state.dogListReducer)
-    let dogList = []
-    
-    if(state && Object.keys(state).length){
-        switch(type) {
-            case "list":
-                dogList = [...state.dogList]
-                break 
-            case "topDogs":
-                dogList = [...state.topDogs]
-                break
-            default:
-                dogList = [...state.dogList]
-                break
-        }
-    }
+    let dogList = DeterminePage(state,type)
 
     return (
         <Grid container spacing={2}>
