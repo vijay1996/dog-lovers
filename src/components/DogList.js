@@ -1,6 +1,8 @@
 //This component creates and displays the list of dogs that has to be shown in the component.
 
 import { useSelector } from "react-redux"
+import Dog from "./Dog"
+import { Grid } from "@material-ui/core"
 
 const DogList = ({type="list"}) => {
     const state = useSelector(state => state)
@@ -20,15 +22,16 @@ const DogList = ({type="list"}) => {
         }
     }
 
-    const dogArray = dogList && dogList.length && dogList.map(dog => {
-        return dog
-    })
-    console.log(dogArray)
-
     return (
-        <div>
-            Hi
-        </div>
+        <Grid container spacing={2}>
+            {dogList && dogList.length && dogList.map(dog => {
+                return (
+                    <Grid item lg={3} md={4} sm={6} xs={12}>
+                        <Dog dog={dog} />
+                    </Grid>
+                )
+            })}
+        </Grid>
     )
 }
 
