@@ -1,5 +1,8 @@
 {
   "name": "dog-lovers",
+  "jest": {
+    "coveragePathIgnorePatterns": ["src/index.js", "src/serviceWorker.js"]
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
+    "test": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
