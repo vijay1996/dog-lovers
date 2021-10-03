@@ -1,6 +1,7 @@
 const URL = "https://api.thedogapi.com/v1/images/search?";
 const VOTE_URL = "https://api.thedogapi.com/v1/votes"
 
+//This function fetches the list of 10 dog objects from api
 export const fetchDogsFromApi = async ({
   apiURL = URL,
   limit = 10,
@@ -23,6 +24,7 @@ export const fetchDogsFromApi = async ({
   }
 };
 
+//This function sends a vote object when vote button is clicked to the api.
 export const castVoteViaApi = async ({
   apiURL = VOTE_URL,
   image_id = "",
@@ -50,6 +52,7 @@ export const castVoteViaApi = async ({
   }
 };
 
+//This function fetches list of votes casted for an api-key 
 export const fetchVotesFromApi = async ({
   apiURL = VOTE_URL,
   image_id = "",

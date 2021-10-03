@@ -16,7 +16,7 @@ export const DetermineVotes = (voteList,dogList) => {
     return votesArray
 }
 
-export const BuildDogCard = (dog, votes, unit, setVotes) => {
+export const BuildDogCard = (dog, unit) => {
 
     //Accepts dog object and builds an array which gets displayed as a card that contains the details of the dog.
     const displayArray = []
@@ -26,63 +26,63 @@ export const BuildDogCard = (dog, votes, unit, setVotes) => {
         }
 
         if(dog.breeds && dog.breeds.length && dog.breeds[0].name) {
-            displayArray.push(<Typography variant="h6">{dog.breeds[0].name}</Typography>)
+            displayArray.push(<Typography key={0} title="name" variant="h6">{dog.breeds[0].name}</Typography>)
         } else {
-            displayArray.push(<Typography variant="h6">Name not available</Typography>)
+            displayArray.push(<Typography key={0} title="name" variant="h6">Name not available</Typography>)
         }
 
         if (dog.breeds && dog.breeds.length) {
             if (dog.breeds[0].life_span){
-                displayArray.push(<BiColumnGrid row1="Life span" row2={dog.breeds[0].life_span} />)
+                displayArray.push(<BiColumnGrid key={1} row1="Life span" row2={dog.breeds[0].life_span} />)
             } else {
-                displayArray.push(<BiColumnGrid row1="Life span" row2="Not available" />)
+                displayArray.push(<BiColumnGrid key={1} row1="Life span" row2="Not available" />)
             }
 
             if (dog.breeds[0].bred_for) {
-                displayArray.push(<BiColumnGrid row1="Bred for" row2={dog.breeds[0].bred_for} />)
+                displayArray.push(<BiColumnGrid key={2} row1="Bred for" row2={dog.breeds[0].bred_for} />)
             } else {
-                displayArray.push(<BiColumnGrid row1="Bred for" row2="Not available" />)
+                displayArray.push(<BiColumnGrid key={2} row1="Bred for" row2="Not available" />)
             }
 
             if (dog.breeds[0].breed_group) {
-                displayArray.push(<BiColumnGrid row1="Breed group" row2={dog.breeds[0].breed_group} />)
+                displayArray.push(<BiColumnGrid key={3} row1="Breed group" row2={dog.breeds[0].breed_group} />)
             } else {
-                displayArray.push(<BiColumnGrid row1="Breed group" row2="Not available" />)
+                displayArray.push(<BiColumnGrid key={3} row1="Breed group" row2="Not available" />)
             }
 
             if (dog.breeds[0].height) {
                 if (dog.breeds[0].height[unit]){
-                    displayArray.push(<BiColumnGrid row1="Height" row2={`${dog.breeds[0].height[unit]} ${(unit==='imperial')? 'Inches': 'Centimeters'}`} />)
+                    displayArray.push(<BiColumnGrid key={4} row1="Height" row2={`${dog.breeds[0].height[unit]} ${(unit==='imperial')? 'Inches': 'Centimeters'}`} />)
                 } else {
-                    displayArray.push(<BiColumnGrid row1="Height" row2="Not available" />)    
+                    displayArray.push(<BiColumnGrid key={4} row1="Height" row2="Not available" />)    
                 }
             } else {
-                displayArray.push(<BiColumnGrid row1="Height" row2="Not available" />)
+                displayArray.push(<BiColumnGrid key={4} row1="Height" row2="Not available" />)
             }
             
             if (dog.breeds[0].weight) {
                 if (dog.breeds[0].weight[unit]){
-                    displayArray.push(<BiColumnGrid row1="Weight" row2={`${dog.breeds[0].weight[unit]} ${(unit==='imperial')? 'Lbs': 'Kgs'}`} />)
+                    displayArray.push(<BiColumnGrid key={5} row1="Weight" row2={`${dog.breeds[0].weight[unit]} ${(unit==='imperial')? 'Lbs': 'Kgs'}`} />)
                 } else {
-                    displayArray.push(<BiColumnGrid row1="Weight" row2="Not available" />)    
+                    displayArray.push(<BiColumnGrid key={5} row1="Weight" row2="Not available" />)    
                 }
             } else {
-                displayArray.push(<BiColumnGrid row1="Weight" row2="Not available" />)
+                displayArray.push(<BiColumnGrid key={6} row1="Weight" row2="Not available" />)
             }
 
             if (dog.breeds[0].temperament) {
-                displayArray.push(<BiColumnGrid row1="Temperament" row2={dog.breeds[0].temperament} />)
+                displayArray.push(<BiColumnGrid key={7} row1="Temperament" row2={dog.breeds[0].temperament} />)
             } else {
-                displayArray.push(<BiColumnGrid row1="Temperament" row2="Not available" />)
+                displayArray.push(<BiColumnGrid key={7} row1="Temperament" row2="Not available" />)
             }
 
         } else {
-            displayArray.push(<BiColumnGrid row1="Life span" row2="Not available" />)
-            displayArray.push(<BiColumnGrid row1="Bred for" row2="Not available" />)
-            displayArray.push(<BiColumnGrid row1="Breed group" row2="Not available" />)
-            displayArray.push(<BiColumnGrid row1="Height" row2="Not available" />)
-            displayArray.push(<BiColumnGrid row1="Weight" row2="Not available" />)
-            displayArray.push(<BiColumnGrid row1="Temperament" row2="Not available" />)
+            displayArray.push(<BiColumnGrid key={1} row1="Life span" row2="Not available" />)
+            displayArray.push(<BiColumnGrid key={2} row1="Bred for" row2="Not available" />)
+            displayArray.push(<BiColumnGrid key={3} row1="Breed group" row2="Not available" />)
+            displayArray.push(<BiColumnGrid key={4} row1="Height" row2="Not available" />)
+            displayArray.push(<BiColumnGrid key={5} row1="Weight" row2="Not available" />)
+            displayArray.push(<BiColumnGrid key={6} row1="Temperament" row2="Not available" />)
         }
     }
     return displayArray

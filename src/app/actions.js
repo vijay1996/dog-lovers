@@ -9,23 +9,15 @@ export const setDogList = (payload) => {
 }
 
 export const setUnit = (payload) => {
-  //This action sets the dog list by accepting the dogList as payload from the user
+  //This action sets the unit system by accepting the unit system as payload from the user
   return {
     type: "setUnit",
     payload
   }
 }
 
-export const setLikedDogs = (payload) => {
-  //This action sets the dog list by accepting the dogList as payload from the user
-  return {
-    type: "setLikedDogs",
-    payload
-  }
-}
-
 export const setVotesArray = (payload) => {
-  //This action sets the dog list by accepting the dogList as payload from the user
+  //This action sets the vote array by accepting the vote array as payload from the user
   return {
     type: "setVotesArray",
     payload

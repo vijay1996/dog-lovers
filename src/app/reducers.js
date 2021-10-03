@@ -17,7 +17,9 @@ export const dogListReducer = (state={}, action) => {
 }
 
 export const unitReducer = (state={unit: "imperial"}, action) => {
+
     //This reducer sets the unit system state of the store
+
     const newState = {...state}
     switch(action.type){
         case 'setUnit':
@@ -28,20 +30,10 @@ export const unitReducer = (state={unit: "imperial"}, action) => {
     }
 }
 
-export const likedDogsReducer = (state={}, action) => {
-    //This reducer sets the top dogs list state of the store
-    const newState = {...state}
-    switch(action.type){
-        case 'setTopDogs':
-            newState.topDogs = action.payload
-            return newState
-        default:
-            return newState
-    }
-}
-
 export const votesArrayReducer = (state={}, action) => {
-    //This reducer sets the top dogs list state of the store
+
+    //This reducer sets the votes array list state of the store
+    
     const newState = {...state}
     switch(action.type){
         case 'setVotesArray':
@@ -52,4 +44,4 @@ export const votesArrayReducer = (state={}, action) => {
     }
 }
 
-export default combineReducers({dogListReducer, unitReducer, likedDogsReducer, votesArrayReducer})
+export default combineReducers({dogListReducer, unitReducer, votesArrayReducer})

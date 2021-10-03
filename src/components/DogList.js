@@ -6,7 +6,7 @@ import Dog from "./Dog"
 import { Grid } from "@material-ui/core"
 import { DetermineVotes } from "./Functions"
 
-const DogList = ({type="list"}) => {
+const DogList = () => {
     const state = useSelector(state => state)
     let dogList = state.dogListReducer.dogList
     let voteList = DetermineVotes(state.votesArrayReducer.votesArray, dogList)
@@ -15,7 +15,7 @@ const DogList = ({type="list"}) => {
         <Grid container spacing={2}>
             {dogList && dogList.length && dogList.map(dog => {
                 return (
-                    <Grid key={dog.id && dog.id} item lg={3} md={4} sm={6} xs={12}>
+                    <Grid key={dog && dog.id} item lg={3} md={4} sm={6} xs={12} title="dogCards">
                         <Dog dog={dog} votes={voteList[dogList.indexOf(dog)]} index={dogList.indexOf(dog)}  updateVotes={()=>{setUpdateVoteList(!updateVoteList)}} />
                     </Grid>
                 )

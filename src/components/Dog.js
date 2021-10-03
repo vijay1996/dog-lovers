@@ -9,9 +9,11 @@ import { castVoteViaApi } from '../apiCalls'
 const Dog = ({dog, votes}) => {
     const unit = useSelector(state => state.unitReducer.unit)
     const [liveVote, setLiveVote] = useState(votes)
-    const displayArray = BuildDogCard(dog, liveVote, unit, setLiveVote)
+    const displayArray = BuildDogCard(dog, unit)
 
     const onVote = () => {
+        //This method calls the api function to cast vote when user clicks like button,
+        //then increases the state variabe that is displayed in the screen by 1.
         castVoteViaApi({image_id: dog.id, value: 1})
         setLiveVote(liveVote+1)
     }
@@ -20,7 +22,7 @@ const Dog = ({dog, votes}) => {
         <Paper style={{margin: "5%", minHeight: "80vh"}}>
             {displayArray && displayArray.length > 0 && displayArray}
             <br/>
-            <div style={{width:"100%", textAlign:"center", margin: "3%"}}><Button variant="outlined" color="primary" onClick={()=>onVote()}>Like | {liveVote}</Button></div>
+            <div style={{width:"100%", textAlign:"center", margin: "3%"}}><Button variant="outlined" title="likeButton" color="primary" onClick={()=>onVote()}>Like | {liveVote}</Button></div>
             <br/>
         </Paper>
     )

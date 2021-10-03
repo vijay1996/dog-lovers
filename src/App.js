@@ -13,7 +13,6 @@ function App() {
   
   const [reload, setReload] = useState(false)
   const [dogsLoaded, setDogsLoaded] = useState(true)
-  const [activePage, setActivePage] = useState('list')
 
   useEffect(()=> {
     fetchDogsFromApi({}).then(response=>{
@@ -36,10 +35,10 @@ function App() {
         <Typography variant="h1">Dog Lovers</Typography>
       </header>
       <br />
-      <Nav reloadImages={navigatePage} type={activePage} setType={setActivePage} />
+      <Nav reloadImages={navigatePage} />
       <br />
-      <div className="Images-div">
-        {dogsLoaded ? <DogList type={activePage} /> : <CircularProgress />}
+      <div className="Images-div" title="imagesTitle">
+        {dogsLoaded ? <DogList /> : <CircularProgress />}
       </div>
     </div>
   );
