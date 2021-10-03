@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
-import Dog from './components/Dog';
+import { store } from '../app/store';
+import Dog from '../components/Dog';
 
 const dog = {breeds:[{weight:{imperial:'35 - 40',metric:'16 - 18'},height:{imperial:'13 - 15',metric:'33 - 38'},id:29,name:'Basset Bleu de Gascogne',bred_for:'Hunting on foot.',breed_group:'Hound',life_span:'10 - 14 years',temperament:'Affectionate, Lively, Agile, Curious, Happy, Active',reference_image_id:'dummyId'}],id:'dummyId',url:'https://cdn2.thedogapi.com/images/BkMQll94X_1280.jpg',width:1280,height:853}
 

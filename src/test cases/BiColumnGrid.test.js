@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import BiColumnGrid from './components/BiColumnGrid'
+import BiColumnGrid from '../components/BiColumnGrid'
 
 test('to check if BiColumnGrid component return first row', () => {
     const {getAllByText} = render(
