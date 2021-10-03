@@ -1,44 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Dog Lovers app installation and access
 
-## Available Scripts
+Dog lovers is a simple application that uses clean and well commented React code and [The dogs api](https://www.thedogapi.com/) to display dog cards with basic information of displayed dogs like name, life span, height, weight, temperament and other breed related details.
 
-In the project directory, you can run:
+## Installation
 
-### `yarn start`
+You need yarn to run this application in your local host. Follow the commands below to get started with the installation.
+```
+git clone https://github.com/vijay1996/dog-lovers.git
+cd dog-lovers
+yarn install
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+This will create a file with the application code and install all the required dependencies.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Starting the app
 
-### `yarn test`
+Once the installation is complete, run the following command in the project directory.
+```
+yarn start
+```
+This will host the app in your [localhost:3000](http://localhost:3000).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Production build
 
-### `yarn build`
+To generate a production build, the following command has to be executed.
+```
+yarn build
+```
+This will create a production build of the app and store the production files in a folder called build inside the project directroy.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Test cases
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This app has 5 test suites and has a test coverage of upto 80%. The test coverage can be accessed by running the following command.
+```
+yarn test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API key
 
-### `yarn eject`
+Inside the application key, there is a .env file which holds a variable to store the API key. It has my API key by default. Please feel free to update it with your API key
+```
+REACT_APP_DOG_API_KEY=e6bccb7e-554e-4690-9f4b-534a0eb3427a
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Tech stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Following technologies are used to create this app - 
+1. React - front end framework
+2. Redux - state management
+3. Material UI - design library
+4. Web designing (HTML, CSS and JavaScript)
+5. Jest - testing framework
+6. React testing library - testing library exclusive to react
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Dog Lovers user manual
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The dog lovers application is a single page application that at any given point displays 10 dog cards. The homepage of the application looks like the following screenshot.
 
-## Learn More
+![image](https://user-images.githubusercontent.com/16256964/135749390-5c9607c3-7f48-46da-926f-5b74b75b2c08.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This page has a button - RELOAD LIST. Each time this button is clicked, a fresh list of 10 dogs is shown. There is also a pair of radio buttons addressed as "Imperial" and "Metric". On choosing either of the buttons, the values of height and weight of the dogs change based on the corresponding unit system chosen.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Each of these dog cards also have a button to like the displayed dog. Though primitive, clicking the button increases the like count of the dog and sends a vote object to the API. So when the same dog is rerendered, it will hold the updated like count. Since the application does not host a feature to let user create accounts, the vote button can be clicked multiple times and each click will be considered as a separate vote. Here is a screenshot of a dog card - 
+
+![image](https://user-images.githubusercontent.com/16256964/135749678-1a948ddf-2cd7-4fda-8db1-06bab3a3a2e3.png)
+
+The application is designed using Material UI for react and it is responsive as mobile first approach was considered during the design and coding process.
+
+![image](https://user-images.githubusercontent.com/16256964/135750027-73089dd5-abec-4306-b434-7c4741186ed1.png)
+
+This application is maticulusly tested using the react test library and jest. It has a code coverage of upto 80% and a thorough manual testing to make up for the remaining coverage ultimately ensuring the quality of the application and its code.
+
+![image](https://user-images.githubusercontent.com/16256964/135750141-b63e289f-2d81-4371-aef7-39dca5e15cec.png)
+
+On the off chance that you find any bug or have feedback, please feel to contact me - vijaybhojraj.cm@gmail.com
