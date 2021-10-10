@@ -36,13 +36,6 @@ This app has 5 test suites and has a test coverage of upto 80%. The test coverag
 yarn test
 ```
 
-## API key
-
-Inside the application key, there is a .env file which holds a variable to store the API key. It has my API key by default. Please feel free to update it with your API key
-```
-REACT_APP_DOG_API_KEY=e6bccb7e-554e-4690-9f4b-534a0eb3427a
-```
-
 ## Tech stack
 
 Following technologies are used to create this app - 
